@@ -29,8 +29,8 @@ function TodoList(props) {
             })} */}
             {props.Db.map((todo) => {
                 return <Todo
-                key={todo.id}
-                id = {todo.id}
+                key={todo._id}
+                id = {todo._id}
                 title={todo.name}
                 content={todo.message}
             />

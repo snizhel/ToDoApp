@@ -16,7 +16,7 @@ export default function ModalInsert(props) {
 
         event.preventDefault();
         const enteredTitile = titleInputRef.current.value;
-        const enteredContent = titleInputRef.current.value;
+        const enteredContent = contentInputRef.current.value;
         try {
             productApi.create(enteredTitile,enteredContent);
             props.onCancel();

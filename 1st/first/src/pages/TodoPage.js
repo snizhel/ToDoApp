@@ -22,10 +22,8 @@ function Todo() {
     useEffect(() => {
         const fetchTodoList = async () => {
             try {
-
                 const response = await productApi.getAll();
-                console.log('Fetch products successfully: ', response);
-                
+                console.log('Fetch products successfully: ',response);
                 setIsLoading(false);
                 setloadedItem(response);
             } catch (error) {

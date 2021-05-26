@@ -8,6 +8,13 @@ import productApi from '../services/productApi';
 
 function Todo(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    let [sendData] = useState({
+        id: props.id,
+        title: props.title,
+        content: props.content
+    })
+
+
 
     function showModal() {
         setModalIsOpen(true);
@@ -15,6 +22,7 @@ function Todo(props) {
     function closeModal() {
         setModalIsOpen(false);
     }
+
     function deleteItem() {
 
         try {
@@ -41,7 +49,7 @@ function Todo(props) {
             </div>
 
             {modalIsOpen && <Backdrop />}
-            {modalIsOpen && <ModalUpdate onClick={closeModal} />}
+            {modalIsOpen && <ModalUpdate onClick={closeModal} data={sendData} />}
 
 
         </div>

@@ -39,7 +39,6 @@ class Database {
 
   async createTodo(name, message) {
     let temp = new Todo({
-      id: mongoose.Types.ObjectId(),
       name: name,
       message: message
     });
@@ -59,15 +58,16 @@ class Database {
     }
   }
   async deleteTodo(id) {
+
     try {
-      await Todo.findOneAndRemove({id:id});
+      await Todo.deleteOne({_id:id});
     } catch (err) {
       console.log("fail to delete items!");
     }
   }
   async updateTodo(id, name, message) {
     try {
-      await Todo.findOneAndUpdate(id, {
+      await Todo.replaceOne({_id:id}, {
         name: name,
         message: message
       });

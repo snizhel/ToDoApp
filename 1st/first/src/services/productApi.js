@@ -7,6 +7,7 @@ const productApi = {
         return axiosClient.get(url, { params });
     },
     delete: (id) => {
+        // console.log(id);
         const url = `/delete?id=${id}`
         return axiosClient.delete(url);
     },
@@ -15,6 +16,14 @@ const productApi = {
         return axiosClient.post(url, {
             name: name,
             message: message
+        })
+    },
+    update:(id,name,message)=>{
+        const url = `/update`
+        return axiosClient.put(url,{
+            id:id,
+            name:name,
+            message:message
         })
     }
 
