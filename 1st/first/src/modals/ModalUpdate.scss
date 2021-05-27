@@ -5,8 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    // background-color: rgba(0,0,0,0.5);
+    
     z-index: -1;
     opacity: 0;
     transition: 0.3s;
@@ -41,11 +40,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px;
+    padding: 30px;
 }
 
 .modal__body {
-    padding: 16px;
+    padding: 30px;
     flex: 1 0 auto;
 }
 
@@ -102,4 +101,21 @@
 
 #submit {
     visibility: hidden;
+}
+
+.update__title{
+    width: 100%;
+    font-size: 24px;
+    font-weight: 350;
+    margin-bottom: 5%;
+    border: none;
+    outline: none;
+}
+
+.update__content{
+    width: 100%;
+    height: 200px;
+    font-size: 18px;
+    font-weight: 100;
+    border: 1px solid black;
 }

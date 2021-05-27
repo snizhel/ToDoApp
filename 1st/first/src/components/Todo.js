@@ -39,8 +39,8 @@ function Todo(props) {
                 <h3>{props.title}</h3>
                 <p>{props.content}</p>
                 <div className="button" >
-                    <button onClick={showModal}>Update</button>
-                    <button style={{ marginLeft: "1%" }} onClick={deleteItem}>Delete</button>
+                    <button onClick={showModal}> Update </button>
+                    <button onClick={deleteItem}> Delete </button>
 
                 </div>
 

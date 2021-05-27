@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import Backdrop from '../modals/Backdrop';
 import ModalInsert from '../modals/ModalInsert';
+import './TodoList.scss'
 // import PropTypes from 'prop-types'
 import Todo from './Todo'
+
 function TodoList(props) {
     const [isModalOpen, setModalIsOpen] = useState(false)
 
@@ -21,7 +23,7 @@ function TodoList(props) {
         
         <div>
             {/* <button onClick={check}>checkItem</button> */}
-            <button onClick={showModal}>add</button>
+            <button className="buttonAdd" onClick={showModal}> ADD </button>
             {/* {props.Db.then(data=>{
                 data.data.map(todo=>{
                     
