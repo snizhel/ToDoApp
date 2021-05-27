@@ -32,20 +32,24 @@ export default function ModalInsert(props) {
                 <div className="container">
 
                     <form id="contact" onSubmit={onSubmit}>
+
                         <button className="close-btn " style={{ marginLeft: "90%", marginBottom: "5%" }} data-close="true" onClick={props.onCancel}>
                             <span className="close-btn__span" data-close="true"></span>
                             <span className="close-btn__span close-btn__span_second-child" data-close="true"></span>
                         </button>
+                        
                         <fieldset>
-                            <input placeholder="Titile" type="text" tabIndex="1" required autoFocus ref={titleInputRef}></input>
+                            <input className="input__title" placeholder="Title" type="text" tabIndex="1" required autoFocus ref={titleInputRef}></input>
                         </fieldset>
 
                         <fieldset>
-                            <textarea placeholder="Type your message here...." tabIndex="5" required ref={contentInputRef}></textarea>
+                            <textarea className="input__content" placeholder="Type your message here...." tabIndex="5" required ref={contentInputRef}></textarea>
                         </fieldset>
+
                         <fieldset>
-                            <button name="submit" type="submit" id="contact-submit" >Submit</button>
+                            <button className="btn btn_primary" name="submit" type="submit" id="contact-submit" >Submit</button>
                         </fieldset>
+
                     </form>
                     {/* <div className="modal__footer">
                             <button className="btn btn_primary" data-close="true" onClick={onClickYes}>Yes</button>
