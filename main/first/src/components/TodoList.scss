@@ -1,0 +1,21 @@
+
+.buttonAdd {
+    border-radius: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 0.50rem 0;
+	margin: auto;
+	text-align: center;
+	width: 7%;
+	color: white;
+	background: black;
+	transition: all 0.8s;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+    &:hover{
+		background: #007bff;
+    }
+	&:focus{
+		outline: solid #007bff;
+    }
+}

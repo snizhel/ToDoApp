@@ -1,6 +1,7 @@
 
 import React, { useRef } from 'react'
 import productApi from '../services/productApi';
+import webSocket from '../services/webSocket';
 // import PropTypes from 'prop-types'
 import './ModalUpdate.scss'
 
@@ -21,8 +22,9 @@ function Modal(props) {
         const enteredContent = contentInputRef.current.value;
         try {
             // productApi.update();?
-            productApi.update(props.data.id,enteredTitile, enteredContent)
+            productApi.update(props.data.id, enteredTitile, enteredContent);
             props.onClick();
+            webSocket.emit('data','data');
         } catch (error) {
             console.log(error);
         }
@@ -51,11 +53,15 @@ function Modal(props) {
                             <fieldset>
                                 <textarea className="update__content" placeholder="Type your message here...." tabIndex="5" defaultValue={props.data.content} required ref={contentInputRef}></textarea>
                             </fieldset>
+
+
+                            <button id="submit" type="submit">Submit</button>
+
                         </form>
                     </div>
 
                     <div className="modal__footer">
-                        <button className="btn btn_primary" data-close="true" onClick={onClickYes}>Submit</button>
+                        <button className="btn btn_primary submit" data-close="true" onClick={onClickYes}>Submit</button>
                         {/* <button className="btn btn_primary" data-close="true" onClick={onClickNo}>No</button> */}
                     </div>
                 </div>
