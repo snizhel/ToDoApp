@@ -27,16 +27,18 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function TodoList() {
+export default function TodoList(props) {
     const classes = useStyles();
-    const cards = [1,2,3,4,5,6,7,8,9,10];
     return (
         <>
             <CssBaseline />
             <Container className={classes.cardGrid} maxWidth="md">
                 <Grid container spacing={4}>
-                    {cards.map(key=>{
-                        return (<CardItem key={key}/>)
+                    {props.data.map(todo => {
+                        return (<CardItem 
+                            key={todo._id}
+                            data={todo}
+                            />)
                     })}
                 </Grid>
             </Container>

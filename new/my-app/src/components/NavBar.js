@@ -4,7 +4,7 @@ export default function NavBar() {
     return (
         <>
             <CssBaseline />
-            <AppBar position="relative">
+            <AppBar position="relative" style={{width:"100%"}}>
                 <Toolbar>
                     <Typography variant="h6">
                         Todo

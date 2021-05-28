@@ -1,7 +1,7 @@
 
 import './App.css';
 import LayOut from './layout/LayOut';
-import { CssBaseline } from '@material-ui/core'
+
 import { Route, Switch } from "react-router-dom";
 import TodoPage from './pages/TodoPage';
 import TestPage from './pages/TestPage';
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <CssBaseline />
+
       <LayOut>
         <Switch>
           <Route path='/' exact={true}>
@@ -26,7 +26,6 @@ function App() {
             <TestPage/>
           </Route>
         </Switch>
-
       </LayOut>
 
 
