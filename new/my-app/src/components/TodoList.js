@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
     },
     cardGrid: {
-        padding: '20px 0'
+        padding: '20px 0',
     },
     card: {
         height: "100%",
@@ -32,7 +32,7 @@ export default function TodoList(props) {
     return (
         <>
             <CssBaseline />
-            <Container className={classes.cardGrid} maxWidth="md">
+            <Container className={classes.cardGrid} maxWidth="md" >
                 <Grid container spacing={4}>
                     {props.data.map(todo => {
                         return (<CardItem 

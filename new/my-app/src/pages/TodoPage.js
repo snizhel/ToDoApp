@@ -11,10 +11,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import productApi from '../api/productApi';
 
 const useStyles = makeStyles((theme) => ({
+    container:{
+        backgroundColor:theme.palette.background.paper,
+        padding:theme.spacing(8,0,6)
+    },
     submit: {
         visibility: "hidden",
     },
-    
+    header:{
+        marginTop:"2%",
+        marginBottom:"2%"
+    }
+
 }));
 export default function TodoPage() {
     const classes = useStyles();
@@ -35,7 +43,7 @@ export default function TodoPage() {
         const enteredTitle = titleInputRef.current.value;
         const enteredContent = contentInputRef.current.value;
         try {
-            productApi.create(enteredTitle,enteredContent);
+            productApi.create(enteredTitle, enteredContent);
             setOpen(false);
         } catch (error) {
             console.log(error);
@@ -50,7 +58,7 @@ export default function TodoPage() {
         const fetchTodoList = async () => {
             try {
                 const response = await productApi.getAll();
-                console.log('Fetch products successfully: ',response);
+                console.log('Fetch products successfully: ', response);
                 setIsLoading(false);
                 setloadedItem(response);
             } catch (error) {
@@ -66,67 +74,74 @@ export default function TodoPage() {
 
     return (
         <>
-            <CssBaseline />
-            <Container maxWidth="sm">
-                <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-                    Todo list
-                </Typography>
-                <Box textAlign='center'>
-                    <Button variant="contained" color="primary" onClick={handleClickOpen}>
-                        Add
+            <div>
+                <CssBaseline />
+                <Container maxWidth="sm" className={classes.header} >
+                    <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+                        Todo list
+                    </Typography>
+                    <Box textAlign='center'>
+                        <Button variant="contained" color="primary" onClick={handleClickOpen}>
+                            Add
                     </Button>
-                </Box>
-            </Container>
+                    </Box>
+                </Container>
+
+
+                <div className={classes.container}>
+                    <TodoList data={loadedItem} />
+                </div>
 
 
 
-            <TodoList data={loadedItem}/>
 
 
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Add todo</DialogTitle>
-                <DialogContent>
-                    {/* <DialogContentText>
+                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">Add todo</DialogTitle>
+                    <DialogContent>
+                        {/* <DialogContentText>
                         To subscribe to this website, please enter your email address here. We will send updates
                         occasionally.
                 </DialogContentText> */}
 
-                    <form id="contact" onSubmit={onSubmit}>
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            label="Title"
-                            type="text"
-                            fullWidth
-                            required
-                            inputRef={titleInputRef}
-                        />
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            label="Type your message here...."
-                            type="text"
-                            size="medium"
-                            fullWidth
-                            multiline
-                            required
-                            inputRef={contentInputRef}
-                            rows={4}
-                        />
-                        <button name="submit" type="submit" id="submit" className={classes.submit} >Submit</button>
+                        <form id="contact" onSubmit={onSubmit}>
+                            <TextField
+                                autoFocus
+                                margin="dense"
+                                label="Title"
+                                type="text"
+                                fullWidth
+                                required
+                                inputRef={titleInputRef}
+                            />
+                            <TextField
+                                autoFocus
+                                margin="dense"
+                                label="Type your message here...."
+                                type="text"
+                                size="medium"
+                                fullWidth
+                                multiline
+                                required
+                                inputRef={contentInputRef}
+                                rows={4}
+                            />
+                            <button name="submit" type="submit" id="submit" className={classes.submit} >Submit</button>
 
-                    </form>
+                        </form>
 
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose} color="primary">
-                        Cancel
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Cancel
                     </Button>
-                    <Button onClick={submit} color="primary">
-                        Add
+                        <Button onClick={submit} color="primary">
+                            Add
                     </Button>
-                </DialogActions>
-            </Dialog>
+                    </DialogActions>
+                </Dialog>
+            </div>
+
         </>
     )
 }
