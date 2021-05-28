@@ -14,7 +14,7 @@
 // }
 
 import React from 'react'
-import Body from '../Body'
+
 import NavBar from '../components/NavBar'
 export default function LayOut(props) {
     return (
@@ -23,7 +23,7 @@ export default function LayOut(props) {
             <main>
                 {props.children}
             </main>
-            <Body/>
+
         </>
     )
 }

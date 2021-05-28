@@ -1,6 +1,6 @@
 import React from 'react'
 import { CssBaseline, Container, Grid } from '@material-ui/core'
-import CardItem from './components/CardItem'
+import CardItem from './CardItem'
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Body() {
+export default function TodoList() {
     const classes = useStyles();
     const cards = [1,2,3,4,5,6,7,8,9,10];
     return (
