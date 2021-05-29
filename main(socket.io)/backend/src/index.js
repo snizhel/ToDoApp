@@ -14,10 +14,10 @@ let connectionString =
   "mongodb+srv://admin:admin@cluster0.yhduf.mongodb.net/todo?retryWrites=true&w=majority";
 
 io.on('connection', (socket) => {
-  // console.log('user connected:' + socket.id);
+  console.log('user connected:' + socket.id);
   
   socket.on('data',data=>{
-    io.emit('data', data);
+    console.log(data);
   })
   
   // //mỗi khi front end emit gọi lại

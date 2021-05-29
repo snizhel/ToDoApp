@@ -35,10 +35,10 @@ export default function TodoList(props) {
             <Container className={classes.cardGrid} maxWidth="md" >
                 <Grid container spacing={4}>
                     {props.data.map(todo => {
-                        return (<CardItem 
+                        return (<CardItem
                             key={todo._id}
                             data={todo}
-                            />)
+                        />)
                     })}
                 </Grid>
             </Container>

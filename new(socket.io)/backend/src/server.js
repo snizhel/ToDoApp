@@ -11,8 +11,11 @@ const Database = require("./database");
 const db = new Database();
 
 
+
+
 app.get("/todos", async (req, res) => {
   let result = await db.getAllTodo();
+
   res.send(result);
 });
 

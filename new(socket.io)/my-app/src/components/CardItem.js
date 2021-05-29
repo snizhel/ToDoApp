@@ -73,7 +73,7 @@ export default function CardItem(props) {
     return (
         <>
             <CssBaseline />
-            <Grid item xl={14} xs={12}  xm={6} md={4}>
+            <Grid item  xs={12}  xm={6} md={4}>
                 <Card className={classes.card}>
                     <CardHeader title={props.data.name} className={classes.cardHeader} />
                     <CardContent className={classes.cardContent}>{props.data.message}</CardContent>
