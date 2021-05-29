@@ -14,4 +14,10 @@ const webSocket = {
 
 
 }
+
+socket.on('test',data=>{
+    // console.log(data)
+    socket.emit('start',data)
+})
+
 export default webSocket;

@@ -51,6 +51,7 @@ class Database {
               // console.log('add');
               // console.log(newTodo);
               io.emit("newData", todo);
+              
               return;
               break;
             }

@@ -15,14 +15,9 @@ let connectionString =
 
 
 io.on('connection', (socket) => {
-  
-  
-  // io.emit('data',"test")
-  socket.on('disconnect', data => {
-    // console.log(data);
-    // io.emit('data', data);
 
-  })
+  console.log("user id:" ,socket.id);
+
 
 });
 
@@ -35,6 +30,7 @@ async function main() {
     //run server with ip:port
     // instance.startServer();
     // db.startServer(config.PORT,config.HOST);
+    
     server.listen(config.PORT, config.HOST, () => {
       console.log(`server is running on ${config.HOST}:${config.PORT}`);
     });
