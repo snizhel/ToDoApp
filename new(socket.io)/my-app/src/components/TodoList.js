@@ -3,10 +3,12 @@ import { CssBaseline, Container, Grid } from '@material-ui/core'
 import CardItem from './CardItem'
 
 import { makeStyles } from '@material-ui/core/styles';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 
 const useStyles = makeStyles((theme) => ({
+
     button: {
         margin: theme.spacing(1),
     },
@@ -27,8 +29,14 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+
+
+
+
 export default function TodoList(props) {
     const classes = useStyles();
+    const user = useAuth0();
+
     return (
         <>
             <CssBaseline />

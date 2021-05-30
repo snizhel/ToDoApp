@@ -16,7 +16,7 @@ let connectionString =
 
 io.on('connection', (socket) => {
 
-  console.log("user id:" ,socket.id);
+  // console.log("user id:" ,socket.id);
 
 
 });
