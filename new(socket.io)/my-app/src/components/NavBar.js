@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { CssBaseline, AppBar, Toolbar, Typography } from '@material-ui/core'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import productApi from '../api/productApi'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -44,8 +45,11 @@ export default function NavBar() {
         error, user
     } = useAuth0();
 
+    // useEffect(() => {
 
+    // }, [])
     function img(user) {
+        productApi.addUser(user);
         return <Avatar variant="circular" src={user.picture}></Avatar>
     }
     return (
@@ -70,7 +74,7 @@ export default function NavBar() {
                         control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
                         label={auth ? 'Logout' : 'Login'}
                     />
-                   
+                
                 </FormGroup> */}
 
 

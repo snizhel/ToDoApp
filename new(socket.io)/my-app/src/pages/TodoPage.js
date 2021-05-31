@@ -35,7 +35,6 @@ class TodoPage extends Component {
         }
     }
 
-
     componentDidMount = async () => {
         wb.on("test", data => {
             console.log(data);
@@ -67,7 +66,7 @@ class TodoPage extends Component {
 
     fetchTodo = async () => {
         try {
-            const response = await productApi.getAll();
+            const response = await productApi.getAllByUser(this.props.user.email);
             console.log('Fetch products successfully: ', response);
             this.setState({ todo: response })
         } catch (error) {
@@ -83,7 +82,7 @@ class TodoPage extends Component {
     }
 
     handleSubmit(event) {
-        productApi.create(this.state.titleValue, this.state.messageValue)
+        productApi.create(this.state.titleValue, this.state.messageValue, this.props.user)
         event.preventDefault();
         this.handleClose();
     }
@@ -106,23 +105,22 @@ class TodoPage extends Component {
         return (
             <>
                 <div>
-
                     <CssBaseline />
                     <Container maxWidth="sm" className={classes.header} >
                         <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
                             Todo list
-                    </Typography>
+                        </Typography>
                         <Box textAlign='center'>
                             <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
                                 Add
-                    </Button>
+                        </Button>
                         </Box>
                     </Container>
 
-
-                    <div className={classes.container}>
+                    {productApi.getUser() !== null && <div className={classes.container}>
                         <TodoList data={this.state.todo} />
-                    </div>
+                    </div>}
+
 
 
 

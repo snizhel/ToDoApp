@@ -40,7 +40,7 @@ class Database {
         const todoStream = db.collection("todos").watch();
 
         todoStream.on("change", (change) => {
-          
+
           switch (change.operationType) {
             case 'insert': {
               let todo = {
@@ -51,7 +51,7 @@ class Database {
               // console.log('add');
               // console.log(newTodo);
               io.emit("newData", todo);
-              
+
               return;
               break;
             }
@@ -70,7 +70,7 @@ class Database {
             }
 
             case 'delete': {
-              io.emit("deleteData",change.documentKey._id);
+              io.emit("deleteData", change.documentKey._id);
               // console.log('delete');
               return;
               break;
@@ -88,13 +88,16 @@ class Database {
     });
   }
 
-  
 
-  async createTodo(name, message) {
-    let temp = new Todo({
+
+  async createTodo(name, message, user) {
+    let data = {
       name: name,
-      message: message
-    });
+      message: message,
+      user: user
+    }
+    let temp = new Todo(data);
+    // console.log(data);
     try {
       await temp.save();
     } catch (err) {
@@ -118,14 +121,25 @@ class Database {
       console.log("fail to delete items!");
     }
   }
-  async updateTodo(id, name, message) {
+  async updateTodo(id, name, message, user) {
     try {
+      // console.log(user);
       await Todo.replaceOne({ _id: id }, {
         name: name,
-        message: message
+        message: message,
+        user:[user]
       });
     } catch (err) {
       console.log("fail to update items!");
+    }
+  }
+
+  async test(email) {
+    // console.log(email);
+    try {
+      return await Todo.find({ "user.email": email.email })
+    } catch (error) {
+      console.log("cant");
     }
   }
 

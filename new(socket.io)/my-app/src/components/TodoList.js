@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TodoList(props) {
     const classes = useStyles();
-    const user = useAuth0();
+    
 
     return (
         <>

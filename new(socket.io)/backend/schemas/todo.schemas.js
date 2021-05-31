@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const todoSchema = new mongoose.Schema({
   id:String,
   name:String,
-  message:String
+  message:String,
+  user:Object,
 });
 
 

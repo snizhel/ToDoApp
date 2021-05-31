@@ -1,36 +1,44 @@
 import axiosClient from "./axiosClient";
-
+import { useAuth0 } from '@auth0/auth0-react';
+let userData = null;
 const productApi = {
 
     getAll: (params) => {
         const url = '/todos';
         return axiosClient.get(url, { params });
     },
+    getAllByUser: (email) => {
+        const url = `/todosUser?email=${email}`
+        return axiosClient.get(url);
+    },
     delete: (id) => {
-        // console.log(id);
         const url = `/delete?id=${id}`
         return axiosClient.delete(url);
     },
-    create: (name,message) => {
+    create: (name, message, user) => {
         const url = `/createTodo`
         return axiosClient.post(url, {
             name: name,
-            message: message
+            message: message,
+            user: user
         })
     },
-    update:(id,name,message)=>{
+    getUser: () => {
+        return userData;
+    },
+    addUser: (data) => {
+        userData = null;
+        userData = data;
+    },
+    update: (id, name, message) => {
         const url = `/update`
-        return axiosClient.put(url,{
-            id:id,
-            name:name,
-            message:message
+        return axiosClient.put(url, {
+            id: id,
+            name: name,
+            message: message,
+            user:{data:userData}
         })
-    }
-
-    // get: (id) => {
-    //     const url = '/products';
-    //     return axiosClient.get(url);
-    // },
+    },
 
 
 }

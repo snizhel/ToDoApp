@@ -54,7 +54,9 @@ export default function CardItem(props) {
         event.preventDefault();
         const enteredTitle = titleInputRef.current.value;
         const enteredContent = contentInputRef.current.value;
+        
         try {
+            
             productApi.update(props.data._id, enteredTitle, enteredContent)
             setOpen(false);
         } catch (error) {
