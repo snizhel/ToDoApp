@@ -127,7 +127,7 @@ class Database {
       await Todo.replaceOne({ _id: id }, {
         name: name,
         message: message,
-        user:[user]
+        user:user
       });
     } catch (err) {
       console.log("fail to update items!");
