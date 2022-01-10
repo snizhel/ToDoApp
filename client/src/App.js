@@ -17,7 +17,7 @@ function App() {
   } = useAuth0();
 
   function startUp(){
-    productApi.addUser(user)
+    productApi.addUser(user);
     return  <TodoPage user={user} />
   }
   return (
@@ -27,7 +27,7 @@ function App() {
         <Switch>
           <Route path='/' exact={true}>
             {user !== undefined && startUp()}
-            {user == undefined && <ReqLogin/>}
+            {user === undefined && <ReqLogin/>}
           </Route>
           <Route path='/test'>
             <TestPage />

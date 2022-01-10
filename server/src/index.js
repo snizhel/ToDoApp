@@ -11,7 +11,7 @@ const io = require('socket.io')(server, { cors: { origin: "*" } });
 
 //key string to connect to db
 let connectionString =
-  "mongodb+srv://admin:admin@cluster0.yhduf.mongodb.net/todo?retryWrites=true&w=majority";
+  "mongodb+srv://snizhel:veemon789@cluster0.wrnyk.mongodb.net/ToDoApp?retryWrites=true&w=majority";
 
 
 io.on('connection', (socket) => {
